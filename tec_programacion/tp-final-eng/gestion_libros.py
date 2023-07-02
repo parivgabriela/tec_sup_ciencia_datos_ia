@@ -114,14 +114,16 @@ def cambiar_estado_cliente(dni_cliente, nuevo_estado):
 def existe_elemento_en_archivo(identificador, archivo, posicion):
     lista_archivo = leer_archivo(archivo)
     # busca linea a linea
-    linea_archivo = ''
     for linea in lista_archivo:
         linea_archivo = linea.replace('\n', '')
         datos_linea = linea_archivo.split(',')
+        linea_elemento = datos_linea
+
         if identificador == datos_linea[posicion]:
-            linea_archivo = datos_linea
+            linea_elemento = datos_linea
             break
-    return linea_archivo
+
+    return linea_elemento
 
 def obtener_isbn_cliente(dni_cliente):
     isbn = ''

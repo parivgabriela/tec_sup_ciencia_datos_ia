@@ -1,6 +1,7 @@
 import os
 import time
 from gestion_libros import mostrar_libros_disponibles, iniciar_prestamo, iniciar_devolucion
+from disponibilidad import consultar_disponibilidad_por_titulo
 
 # constants
 HEADER = """
@@ -25,7 +26,7 @@ def menu_consulta_disponibilidad():
     
     while estado:
         nombre_libro = input(msj)
-        print(nombre_libro.lower())
+        consultar_disponibilidad_por_titulo(nombre_libro)
 
         opcion_salida = input(msj_opcion_Salida)
 
