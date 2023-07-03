@@ -1,6 +1,9 @@
+import os
+import time
+
 from constants import ARCHIVO_CLIENTES
 from validations import validate_number, validate_str
-from gestion_libros import existe_dni_en_clientes
+from gestion_libros import existe_dni_en_clientes, cambiar_estado_archivo
 '''
         A - Alta de cliente
         C - Consulta estado del cliente
@@ -46,3 +49,38 @@ def client_status():
         print("Estado: Libre")
     elif consulta[4] == 'B':
         print("Estado: Baja.")
+
+def update_data_client(new_data, position):
+    POS_ADDRESS = 3
+    POS_PHONE = 2
+    dni = validate_number('dni', 7)
+    consulta = existe_dni_en_clientes(dni)
+    if consulta != '':
+        print("Modificando datos...")
+        if position == POS_ADDRESS:
+            cambiar_estado_archivo(dni, new_data,POS_ADDRESS, ARCHIVO_CLIENTES)
+        else:
+            cambiar_estado_archivo(dni, new_data, POS_PHONE, ARCHIVO_CLIENTES)
+        time.sleep(0.5)
+        print("Modificacion exitosa")
+
+def modify_client_information():
+    # ask for address or phone number
+    os.system('cls' if os.name == 'nt' else 'clear')
+    time.sleep(0.7)
+    menu = '''
+        Modificar datos del cliente
+        A - Modificar dirección
+        B - Modificar telefono
+    '''
+    print(menu)
+    option = input("Ingrese una opcion: ")
+
+    if option.lower() == 'a':
+        new_address = input("Nueva direccion: ")
+        update_data_client(new_address, 3)
+    elif option.lower() == 'b':
+        new_phone = validate_number("telefono", 7)
+        update_data_client(new_phone, 2)
+    else:
+        print("Opción incorrecta")
