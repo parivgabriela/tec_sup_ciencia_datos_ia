@@ -1,8 +1,9 @@
 import os
 import time
-from gestion_libros import mostrar_libros_disponibles, iniciar_prestamo, iniciar_devolucion
+from gestion_prestamo import mostrar_libros_disponibles, iniciar_prestamo, iniciar_devolucion
 from disponibilidad import consultar_disponibilidad_por_titulo
 from gestion_clientes import new_client, client_status, modify_client_information, delete_client_view
+from gestion_libros import new_book_view
 
 # constants
 HEADER = """
@@ -209,7 +210,7 @@ def menu_gestion_libros():
 
         if opcion.lower() == 'a':
             while estado_opcion:
-                print('se dio de alta al libro: *nombre del libro*')
+                new_book_view()
                 opcion_salida = input(msj_alta)
                 if opcion_salida == 'si':
                     estado_opcion = True
