@@ -115,7 +115,7 @@ def existe_elemento_en_archivo(identificador, archivo, posicion):
     for linea in lista_archivo:
         linea_archivo = linea.replace('\n', '')
         datos_linea = linea_archivo.split(',')
-        linea_elemento = datos_linea
+        linea_elemento = ''
 
         if identificador == datos_linea[posicion]:
             linea_elemento = datos_linea
