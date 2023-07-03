@@ -169,11 +169,12 @@ def cambiar_estado_archivo(id_identificador, nuevo_estado, posicion, archivo):
     list_archivo = leer_archivo(archivo)
     indice = 0
     for linea in list_archivo:
-        linea_archivo = linea.split(',')
-        if id_identificador == linea_archivo[COL_IDENTIFICADOR]:
+        linea_archivo = linea.replace('\n', '')
+        datos_linea = linea_archivo.split(',')
+        if id_identificador == datos_linea[COL_IDENTIFICADOR]:
             # marcar al cliente como ocupado
-            linea_archivo[posicion] = nuevo_estado
-            datos_actualizados = ','.join(linea_archivo)
+            datos_linea[posicion] = nuevo_estado
+            datos_actualizados = ','.join(datos_linea)
             # se agrega el salto de linea
             renglon_nuevo = datos_actualizados + '\n'
             break
