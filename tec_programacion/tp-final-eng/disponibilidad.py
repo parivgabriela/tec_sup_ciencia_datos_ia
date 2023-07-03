@@ -1,5 +1,5 @@
 # pto 0
-from gestion_libros import ARCHIVO_LIBROS, leer_archivo, ESTADO_LIBRO_LIBRE, ESTADO_LIBRO_OCUPADO,\
+from gestion_prestamo import ARCHIVO_LIBROS, leer_archivo, ESTADO_LIBRO_LIBRE, ESTADO_LIBRO_OCUPADO,\
     existe_elemento_en_archivo, ARCHIVO_CLIENTES
 
 def buscar_existencia_titulo(titulo):

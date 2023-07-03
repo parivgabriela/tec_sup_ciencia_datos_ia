@@ -3,7 +3,7 @@ import time
 
 from constants import ARCHIVO_CLIENTES
 from validations import validate_number, validate_str
-from gestion_libros import existe_dni_en_clientes, cambiar_estado_archivo, cambiar_estado_cliente
+from gestion_prestamo import existe_dni_en_clientes, cambiar_estado_archivo, cambiar_estado_cliente
 '''
         A - Alta de cliente
         C - Consulta estado del cliente
@@ -29,7 +29,6 @@ def new_client():
 
 def add_new_client(dni, full_name, address, phone_number):
     new_client_line = f"\n{dni},{full_name},{phone_number},{address},L,"
-    # chequea que exista otro dni 
     try:
         with open(ARCHIVO_CLIENTES, 'a') as file:
             file.write(new_client_line)
@@ -105,5 +104,3 @@ def delete_client_view():
             print("Operación cancelada")
     else:
         print(f"El número de dni {dni} no existe")
-
-
