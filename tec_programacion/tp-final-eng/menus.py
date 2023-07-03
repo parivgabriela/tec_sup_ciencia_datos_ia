@@ -2,7 +2,7 @@ import os
 import time
 from gestion_libros import mostrar_libros_disponibles, iniciar_prestamo, iniciar_devolucion
 from disponibilidad import consultar_disponibilidad_por_titulo
-from gestion_clientes import new_client, client_status, modify_client_information
+from gestion_clientes import new_client, client_status, modify_client_information, delete_client_view
 
 # constants
 HEADER = """
@@ -128,7 +128,7 @@ def menu_gestion_cliente():
     msj_opcion_incorrecta = 'opcion incorrecta!'
     msj_advertencia = 'ingrese una de las opciones brindadas'
 
-    print(msj_menu_gestion)
+    print(HEADER + msj_menu_gestion)
 
     while estado:
         estado_opcion = True
@@ -161,7 +161,7 @@ def menu_gestion_cliente():
                     estado_opcion = False
         elif opcion.lower() == 'e':
             while estado_opcion:
-                print('se ha eliminado al cliente')
+                delete_client_view()
                 opcion_salida = input(msj_eliminacion)
                 if opcion_salida == 'si':
                     estado_opcion = False
@@ -204,7 +204,7 @@ def menu_gestion_libros():
     while estado:
         estado_opcion = True
         os.system('cls' if os.name == 'nt' else 'clear')
-        print(msj_menu_gestion)
+        print(HEADER + msj_menu_gestion)
         opcion = input(msj)
 
         if opcion.lower() == 'a':
