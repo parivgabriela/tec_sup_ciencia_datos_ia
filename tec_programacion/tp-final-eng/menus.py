@@ -2,7 +2,7 @@ import os
 import time
 from gestion_libros import mostrar_libros_disponibles, iniciar_prestamo, iniciar_devolucion
 from disponibilidad import consultar_disponibilidad_por_titulo
-from gestion_clientes import new_client
+from gestion_clientes import new_client, client_status
 
 # constants
 HEADER = """
@@ -145,7 +145,7 @@ def menu_gestion_cliente():
                     estado_opcion = False
         elif opcion.lower() == 'c':
             while estado_opcion:
-                print('consulta satisfactoria')
+                client_status()
                 opcion_salida = input(msj_consulta_cliente)
                 if opcion_salida =='si':
                     estado_opcion = True
