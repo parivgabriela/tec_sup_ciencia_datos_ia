@@ -137,7 +137,7 @@ def existe_dni_en_clientes(dni_cliente):
 
 def existe_isbn_en_libros(isbn):
     return existe_elemento_en_archivo(identificador=isbn,
-                               archivo=ARCHIVO_CLIENTES,
+                               archivo=ARCHIVO_LIBROS,
                                posicion=COL_IDENTIFICADOR)
 
 def cambiar_estado_libros(isbn, nuevo_estado):
