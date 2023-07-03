@@ -5,9 +5,7 @@
      C - Registrar Devolución (pedir datos necesarios para buscar el cliente y libro o pelicula 
 """
 import re
-
-ARCHIVO_CLIENTES = 'clientes.txt'
-ARCHIVO_LIBROS = 'libros.txt'
+from constants import ARCHIVO_CLIENTES, ARCHIVO_LIBROS
 
 CLIENTES = "CLIENTES"
 LIBROS = "LIBROS"
