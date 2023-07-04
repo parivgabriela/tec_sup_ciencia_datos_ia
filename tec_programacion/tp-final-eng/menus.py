@@ -3,7 +3,7 @@ import time
 from gestion_prestamo import mostrar_libros_disponibles, iniciar_prestamo, iniciar_devolucion
 from disponibilidad import consultar_disponibilidad_por_titulo
 from gestion_clientes import new_client, client_status, modify_client_information, delete_client_view
-from gestion_libros import new_book_view
+from gestion_libros import new_book_view, get_book_view, modify_book_view, delete_book_view
 
 # constants
 HEADER = """
@@ -97,9 +97,9 @@ def menu_prestamo_libro():
         elif opcion.lower() == 'x':
             opcion_salida = input(EXIT_MESSAGE)
             if opcion_salida.lower() == 'si':
-                estado = False
-            else:
                 estado = True
+            else:
+                estado = False
         else:
             print(msj_opcion_incorrecta)
             print(msj_advertencia)
@@ -212,40 +212,40 @@ def menu_gestion_libros():
             while estado_opcion:
                 new_book_view()
                 opcion_salida = input(msj_alta)
-                if opcion_salida == 'si':
+                if opcion_salida.lower() == 'si':
                     estado_opcion = True
                 else:
                     estado_opcion = False
         elif opcion.lower() == 'c':
             while estado_opcion:
-                print('se consulto el libro')
+                get_book_view()
                 opcion_salida = input(msj_consulta)
-                if opcion_salida == 'si':
+                if opcion_salida.lower() == 'si':
                     estado_opcion = True
                 else:
                     estado_opcion = False
         elif opcion.lower() == 'm':
             while estado_opcion:
-                print('se modifico el libro')
+                modify_book_view()
                 opcion_salida = input(msj_modificar)
-                if opcion_salida == 'si':
+                if opcion_salida.lower() == 'si':
                     estado_opcion = True
                 else:
                     estado_opcion = False
         elif opcion.lower() == 'e':
             while estado_opcion:
-                print('se elimino el libro')
+                delete_book_view()
                 opcion_salida = input(msj_eliminar)
-                if opcion_salida == 'si':
+                if opcion_salida.lower() == 'si':
                     estado_opcion = True
                 else:
                     estado_opcion = False
         elif opcion.lower() == 'x':
             opcion_salida = input(EXIT_MESSAGE)
-            if opcion_salida == 'si':
-                estado = False
-            else:
+            if opcion_salida.lower() == 'si':
                 estado = True
+            else:
+                estado = False
         else:
             print(msj_opcion_incorrecta)
             print(msj_advertencia)
