@@ -6,17 +6,19 @@ def buscar_existencia_titulo(titulo):
     list_archivo = leer_archivo(ARCHIVO_LIBROS)
     encontrados = []
     for linea in list_archivo:
-        # todo esto busca en toda la linea, sea titulo o no
-        if titulo.lower() in linea.lower():
-            linea_separada = linea.split(',')
+        linea_temp = linea.replace('\n', '')
+        linea_separada = linea_temp.split(',')
+
+        # comparo el titulo
+        if titulo.lower() in linea_separada[1].lower():
             if linea_separada[3] == ESTADO_LIBRO_LIBRE:
                 datos_libro = f"Titulo: {linea_separada[1]}. Disponible"
                 encontrados.append(datos_libro)
             elif linea_separada[3] == ESTADO_LIBRO_OCUPADO:
                 # buscar nombre de la persona
-                dni_cliente = linea_separada[0]
+                dni_cliente = linea_separada[4]
                 datos_cliente = existe_elemento_en_archivo(dni_cliente, ARCHIVO_CLIENTES, 0)
-                datos_libro = f"Titulo: {linea_separada[1]}. En prestado a cliente: {datos_cliente[1]} "
+                datos_libro = f"Titulo: {linea_separada[1]}. En prestamo a cliente: {datos_cliente[1]} "
                 encontrados.append(datos_libro)
     return encontrados
 
@@ -25,8 +27,8 @@ def consultar_disponibilidad_por_titulo(nombre):
     lista_encontrados = buscar_existencia_titulo(nombre)
 
     if len(lista_encontrados) > 0:
-        print("Elementos encontrados:\n")
+        print("\nElementos encontrados:\n")
         for renglon in lista_encontrados:
-            print(renglon)
+            print(f"\t{renglon}")
     else:
         print(f"No se encontraron libros con el nombre {nombre}")

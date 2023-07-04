@@ -16,11 +16,12 @@ HEADER = """
 """
 EXIT_MESSAGE = 'Do you want to exit? [Yes/No] '
 SELECT_OPTION_MSG = 'Select an option: '
+
 def menu_consulta_disponibilidad():
     os.system('cls' if os.name == 'nt' else 'clear')
     time.sleep(0.7)
     estado = True
-    msj_opcion_Salida = '¿desea consultar otro libro?  [si/no]'
+    msj_opcion_continuar = '\n¿desea consultar otro libro?  [si/no] '
     opcion_salida = ''
 
     msj = 'ingrese el nombre del libro: '
@@ -30,12 +31,13 @@ def menu_consulta_disponibilidad():
         nombre_libro = input(msj)
         consultar_disponibilidad_por_titulo(nombre_libro)
 
-        opcion_salida = input(msj_opcion_Salida)
+        opcion_salida = input(msj_opcion_continuar)
 
         if opcion_salida == 'no':
             print('adios')
             estado = False
         else:
+            os.system('cls' if os.name == 'nt' else 'clear')
             estado = True
 
 def menu_prestamo_libro():
@@ -44,9 +46,9 @@ def menu_prestamo_libro():
 
     estado = True
     estado_opcion = True
-    msj_salida_consulta = '¿deasea hacer otra consulta? [si/no]'
-    msj_salida_prestamo = '¿desea registrar otro prestamo? [si/no]'
-    msj_salida_devolucion = '¿desea registrar otra devolucion? [si/no]'
+    msj_salida_consulta = '¿deasea hacer otra consulta? [si/no] '
+    msj_salida_prestamo = '¿desea registrar otro prestamo? [si/no] '
+    msj_salida_devolucion = '¿desea registrar otra devolucion? [si/no] '
     opcion_salida = ''
     opcion = ''
     msj_menu_prestamo = '''
@@ -73,7 +75,7 @@ def menu_prestamo_libro():
                 if opcion_salida.lower() == 'no':
                     estado_opcion = False
                 elif opcion_salida.lower() == 'si':
-                    estado_opcion = False
+                    estado_opcion = True
                 else:
                     print("Respuesta invalida.")
                     opcion_salida = input(msj_salida_consulta)
@@ -81,25 +83,24 @@ def menu_prestamo_libro():
             while estado_opcion:
                 iniciar_prestamo()
                 opcion_salida = input(msj_salida_prestamo)
-                if opcion_salida.lower() == 'no':
-                    estado_opcion = False
-                else:
+                if opcion_salida.lower() == 'si':
                     estado_opcion = True
+                else:
+                    estado_opcion = False
         elif opcion.lower() == 'c':
             while estado_opcion:
                 iniciar_devolucion()
-                print('se registro la devolucion')
                 opcion_salida = input(msj_salida_devolucion)
-                if opcion_salida.lower() == 'no':
-                    estado_opcion = False
-                else:
+                if opcion_salida.lower() == 'si':
                     estado_opcion = True
+                else:
+                    estado_opcion = False
         elif opcion.lower() == 'x':
             opcion_salida = input(EXIT_MESSAGE)
             if opcion_salida.lower() == 'si':
-                estado = True
-            else:
                 estado = False
+            else:
+                estado = True
         else:
             print(msj_opcion_incorrecta)
             print(msj_advertencia)
@@ -113,11 +114,11 @@ def menu_gestion_cliente():
     estado_opcion = True
     opcion_salida = ''
     opcion = '' 
-    msj_alta_cliente = '¿desea salir del alta del clientes? [si/no]'
-    msj_consulta_cliente = '¿desea hacer otra consulta de cliente? [si/no]'
-    msj_modificacion = '¿desea modificar otro cliente? [si/no]'
-    msj_eliminacion = '¿desea eliminar otro cliente? [si/no]'
-    msj_salida = '¿desea salir del menu? [si/no]'
+    msj_alta_cliente = '¿desea salir del alta del clientes? [si/no] '
+    msj_consulta_cliente = '¿desea hacer otra consulta de cliente? [si/no] '
+    msj_modificacion = '¿desea modificar otro cliente? [si/no] '
+    msj_eliminacion = '¿desea eliminar otro cliente? [si/no] '
+    msj_salida = '¿desea salir del menu? [si/no] '
     msj = 'ingrese la opcion deseada: '
     msj_menu_gestion = '''
         A - Alta de cliente
@@ -141,14 +142,14 @@ def menu_gestion_cliente():
                 new_client()
                 opcion_salida = input(msj_alta_cliente)
                 if opcion_salida.lower() == 'si':
-                    estado_opcion = True
-                else:
                     estado_opcion = False
+                else:
+                    estado_opcion = True
         elif opcion.lower() == 'c':
             while estado_opcion:
                 client_status()
                 opcion_salida = input(msj_consulta_cliente)
-                if opcion_salida =='si':
+                if opcion_salida.lower() =='si':
                     estado_opcion = True
                 else:
                     estado_opcion = False
@@ -156,7 +157,7 @@ def menu_gestion_cliente():
             while estado_opcion:
                 modify_client_information()
                 opcion_salida = input(msj_modificacion)
-                if opcion_salida =='si':
+                if opcion_salida.lower() =='si':
                     estado_opcion = True
                 else:
                     estado_opcion = False
@@ -164,13 +165,13 @@ def menu_gestion_cliente():
             while estado_opcion:
                 delete_client_view()
                 opcion_salida = input(msj_eliminacion)
-                if opcion_salida == 'si':
-                    estado_opcion = False
-                else:
+                if opcion_salida.lower() == 'si':
                     estado_opcion = True
+                else:
+                    estado_opcion = False
         elif opcion.lower() == 'x':
             opcion_salida = input(msj_salida)
-            if opcion_salida == 'si':
+            if opcion_salida.lower() == 'si':
                 estado = False
             else:
                 estado = True
@@ -188,10 +189,10 @@ def menu_gestion_libros():
     estado_opcion = True
     opcion = '' 
     msj = 'ingrese la opcion deseada: '
-    msj_alta = '¿desea dar de alta otro libro? [si/no]'
-    msj_consulta = '¿desea consultar otro libro? [si/no]'
-    msj_modificar = '¿desea modificar otro libro? [si/no]'
-    msj_eliminar = '¿desea eliminar otro libro? [si/no]'
+    msj_alta = '¿desea dar de alta otro libro? [si/no] '
+    msj_consulta = '¿desea consultar otro libro? [si/no] '
+    msj_modificar = '¿desea modificar otro libro? [si/no] '
+    msj_eliminar = '¿desea eliminar otro libro? [si/no] '
     msj_menu_gestion = '''
         A - Alta de libro
         C - Consultar un libro
@@ -243,9 +244,9 @@ def menu_gestion_libros():
         elif opcion.lower() == 'x':
             opcion_salida = input(EXIT_MESSAGE)
             if opcion_salida.lower() == 'si':
-                estado = True
-            else:
                 estado = False
+            else:
+                estado = True
         else:
             print(msj_opcion_incorrecta)
             print(msj_advertencia)
