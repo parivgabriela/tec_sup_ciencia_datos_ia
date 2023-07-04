@@ -1,11 +1,12 @@
+import time
+from constants import ARCHIVO_CLIENTES, ARCHIVO_LIBROS, NULL
+
 """
 1 - Préstamo de Libro / Película : puede tener un sub-Menú que tenga las opciones:
      A - Consultar todos los títulos/películas disponible (verificando el campo estado)
      B - Registrar préstamo (deberá buscar el libro o película y cambiar el campo de estado a "P" de prestado y en el cliente con "O" de ocupado)
      C - Registrar Devolución (pedir datos necesarios para buscar el cliente y libro o pelicula 
 """
-import re
-from constants import ARCHIVO_CLIENTES, ARCHIVO_LIBROS, NULL
 
 CLIENTES = "CLIENTES"
 LIBROS = "LIBROS"
@@ -127,7 +128,6 @@ def obtener_isbn_cliente(dni_cliente):
     renglon_info = existe_elemento_en_archivo(dni_cliente, ARCHIVO_CLIENTES,COL_IDENTIFICADOR)
     if renglon_info != '':
         isbn = renglon_info[5]
-        print(f" encontrado {renglon_info}")
     return isbn
 
 def existe_dni_en_clientes(dni_cliente):
@@ -202,28 +202,35 @@ def validar_codigo_identificador(mensaje):
 def pedir_datos_usuario():
     isbn_ingresado = validar_codigo_identificador('ISBN (sin puntos)')
     dni_ingresado = validar_codigo_identificador("dni de cliente(sin puntos)")
-    # verifico que libro este disponible/exista
+    # verifico que libro este exista
     temp_libro = existe_isbn_en_libros(isbn_ingresado)
     if temp_libro == NULL:
         print("El ISBN No existe")
         isbn_ingresado = validar_codigo_identificador('ISBN (sin puntos)')
+        temp_libro = existe_isbn_en_libros(isbn_ingresado)
 
     # verifico que el cliente exista
     temp_cliente = existe_dni_en_clientes(dni_ingresado)
     if temp_cliente == NULL:
         print("El dni del cliente no existe")
         dni_ingresado = validar_codigo_identificador("dni de cliente(sin puntos)")
+        temp_cliente = existe_dni_en_clientes(dni_ingresado)
 
-    if temp_libro == NULL or temp_cliente == NULL:
-        print("Datos incorrectos, repetir proceso")
-        isbn_ingresado = ''
-        dni_ingresado = ''
+    if temp_libro == NULL: isbn_ingresado = ''
+    if temp_cliente == NULL: dni_ingresado = ''
+        
     return isbn_ingresado, dni_ingresado
 
 def iniciar_prestamo():
     isbn_valido, dni_valido = pedir_datos_usuario()
     if isbn_valido != '' and dni_valido != '':
         registrar_prestamo(isbn_valido, dni_valido)
+    elif isbn_valido == '' and dni_valido == '':
+        print("Error al cargar los datos tanto DNI como ISBN no existen.\nVuelva a intentar")
+    elif isbn_valido == NULL:
+        print("El ISBN no existe, no se puede proceder al prestamo")
+    elif dni_valido == NULL:
+        print("El dni ingresado existe, no se puede proceder al prestamo")
 
 
 def registrar_prestamo(isbn, dni_cliente):
@@ -235,6 +242,7 @@ def registrar_prestamo(isbn, dni_cliente):
         isbn (string): numero unico que identifica un libro
         dni_cliente (string): numero unico que identifica al cliente
     """
+
     if esta_disponible(isbn, LIBROS) and esta_disponible(dni_cliente, CLIENTES):
         # cambiar estado de isbn a P
         cambiar_estado_libros(isbn, ESTADO_LIBRO_OCUPADO)
@@ -249,17 +257,21 @@ def registrar_prestamo(isbn, dni_cliente):
                                nuevo_estado=isbn,
                                posicion=5,
                                archivo=ARCHIVO_CLIENTES)
-        print("Se registro la devolucion")
+        time.sleep(0.7)
         print("Se registro el prestamo exitosamente")
-    elif not esta_disponible(isbn, LIBROS):
-        print(f"No se puede concretar el prestamo el libro con ISBN {isbn} no se encuentra libre")
-    elif not esta_disponible(dni_cliente, CLIENTES):
-        print(f"El cliente con dni {dni_cliente} no cumple la condicion")
+    else:
+        print("No se puede concretar el prestamo")
+        if not esta_disponible(isbn, LIBROS):
+            print(f"El libro con ISBN {isbn} no se encuentra libre")
+        if not esta_disponible(dni_cliente, CLIENTES):
+            print(f"El cliente con dni {dni_cliente} tiene un prestamo en curso.")
 
 def iniciar_devolucion():
     isbn_valido, dni_valido = pedir_datos_usuario()
     if isbn_valido != '' and dni_valido != '':
         registrar_devolucion(isbn_valido, dni_valido)
+    elif isbn_valido == '' and dni_valido != '':
+        print(f"El ISBN {isbn_valido} no existe")
 
 def registrar_devolucion(isbn, dni_cliente):
     """registra la devolucion de un libro cambiando el estado a L 
@@ -288,8 +300,9 @@ def registrar_devolucion(isbn, dni_cliente):
                                nuevo_estado=NULL,
                                posicion=5,
                                archivo=ARCHIVO_CLIENTES)
+        time.sleep(0.7)
         print("Se registro la devolucion")
     if isbn_obtenido == '':
         print("El cliente no posee algun libro registrado en prestamo")
     elif isbn_obtenido != isbn:
-        print(f"No se puede registra la devolucion el ISBN ingresado: {isbn} no coincide con el que tiene el cliente")
+        print(f"No se puede registra la devolucion.\nEl ISBN ingresado: {isbn} no coincide con el que tiene el cliente {dni_cliente}")
