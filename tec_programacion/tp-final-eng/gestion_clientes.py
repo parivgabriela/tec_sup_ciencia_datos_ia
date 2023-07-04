@@ -62,6 +62,8 @@ def update_data_client(new_data, position):
             cambiar_estado_archivo(dni, new_data, POS_PHONE, ARCHIVO_CLIENTES)
         time.sleep(0.5)
         print("Modificacion exitosa")
+    else:
+        print("No existe un dni asociado")
 
 def modify_client_information():
     # ask for address or phone number
