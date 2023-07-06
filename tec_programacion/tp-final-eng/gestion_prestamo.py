@@ -1,5 +1,6 @@
 import time
-from constants import ARCHIVO_CLIENTES, ARCHIVO_LIBROS, NULL
+from constants import ARCHIVO_CLIENTES, ARCHIVO_LIBROS, NULL, ESTADO_CLIENTE_LIBRE, ESTADO_CLIENTE_OCUPADO,\
+     ESTADO_LIBRO_LIBRE, ESTADO_LIBRO_OCUPADO, ESTADO_CLIENTE_ELIMINADO
 
 """
 1 - Préstamo de Libro / Película : puede tener un sub-Menú que tenga las opciones:
@@ -10,10 +11,7 @@ from constants import ARCHIVO_CLIENTES, ARCHIVO_LIBROS, NULL
 
 CLIENTES = "CLIENTES"
 LIBROS = "LIBROS"
-ESTADO_CLIENTE_LIBRE = 'L'
-ESTADO_CLIENTE_OCUPADO = 'O'
-ESTADO_LIBRO_LIBRE= 'D'
-ESTADO_LIBRO_OCUPADO = 'P'
+
 
 COL_IDENTIFICADOR = 0
 
@@ -131,9 +129,13 @@ def obtener_isbn_cliente(dni_cliente):
     return isbn
 
 def existe_dni_en_clientes(dni_cliente):
-    return existe_elemento_en_archivo(identificador=dni_cliente,
-                               archivo=ARCHIVO_CLIENTES,
-                               posicion=COL_IDENTIFICADOR)
+    dni_encontrado = existe_elemento_en_archivo(identificador=dni_cliente,
+                                                archivo=ARCHIVO_CLIENTES,
+                                                posicion=COL_IDENTIFICADOR)
+    if dni_encontrado[4] == ESTADO_CLIENTE_ELIMINADO:
+        dni_encontrado = ''
+
+    return dni_encontrado
 
 def existe_isbn_en_libros(isbn):
     return existe_elemento_en_archivo(identificador=isbn,
@@ -267,42 +269,38 @@ def registrar_prestamo(isbn, dni_cliente):
             print(f"El cliente con dni {dni_cliente} tiene un prestamo en curso.")
 
 def iniciar_devolucion():
-    isbn_valido, dni_valido = pedir_datos_usuario()
-    if isbn_valido != '' and dni_valido != '':
-        registrar_devolucion(isbn_valido, dni_valido)
-    elif isbn_valido == '' and dni_valido != '':
-        print(f"El ISBN {isbn_valido} no existe")
+    isbn_ingresado = validar_codigo_identificador("ISBN")
+    temp_libro = existe_isbn_en_libros(isbn_ingresado)
+
+    # verifico que el libro exista y este ocupado
+    if len(temp_libro) > 0 and temp_libro[3] == ESTADO_LIBRO_OCUPADO:
+        registrar_devolucion(isbn=isbn_ingresado, dni_cliente=temp_libro[4])
+    elif temp_libro[3] != ESTADO_LIBRO_OCUPADO:
+        print("El libro no se encuentra ocupado")
+    else:
+        print(f"El ISBN {isbn_ingresado} no existe")
 
 def registrar_devolucion(isbn, dni_cliente):
-    """registra la devolucion de un libro cambiando el estado a L 
+    """registra la devolucion de un libro cambiando el estado a D 
         cambia el estado del cliente a L
         todo: verificar que el usuario exista y que tenga estado L(libre) 
         todo: verificar que dado isbn el libro este disponible/exista
     Args:
         isbn (int): numero unico que identifica un libro
-        dni_cliente (int): numero unico que identifica al cliente
     """
-    #validar que el cliente tenga el mismo isbn que el recibido 
 
-    isbn_obtenido = obtener_isbn_cliente(dni_cliente)
-    estado_cliente = buscar_estado_id_archivo(dni_cliente, ARCHIVO_CLIENTES)
-    if estado_cliente == ESTADO_CLIENTE_OCUPADO and isbn == isbn_obtenido:
-        # procesar devolucion
-        # cambiar estado de ambos libro y cliente
-        cambiar_estado_libros(isbn, ESTADO_LIBRO_LIBRE)
-        cambiar_estado_cliente(dni_cliente, ESTADO_CLIENTE_LIBRE)
-        # quito el isbn del cliente y el dato dni_cliente del archivo libros
-        cambiar_estado_archivo(id_identificador=isbn,
-                               nuevo_estado=NULL,
-                               posicion=4,
-                               archivo=ARCHIVO_LIBROS)
-        cambiar_estado_archivo(id_identificador=dni_cliente,
-                               nuevo_estado=NULL,
-                               posicion=5,
-                               archivo=ARCHIVO_CLIENTES)
-        time.sleep(0.7)
-        print("Se registro la devolucion")
-    if isbn_obtenido == '':
-        print("El cliente no posee algun libro registrado en prestamo")
-    elif isbn_obtenido != isbn:
-        print(f"No se puede registra la devolucion.\nEl ISBN ingresado: {isbn} no coincide con el que tiene el cliente {dni_cliente}")
+    # procesar devolucion
+    # cambiar estado de ambos libro y cliente
+    cambiar_estado_libros(isbn, ESTADO_LIBRO_LIBRE)
+    cambiar_estado_cliente(dni_cliente, ESTADO_CLIENTE_LIBRE)
+    # quito el isbn del cliente y el dato dni_cliente del archivo libros
+    cambiar_estado_archivo(id_identificador=isbn,
+                           nuevo_estado=NULL,
+                           posicion=4,
+                           archivo=ARCHIVO_LIBROS)
+    cambiar_estado_archivo(id_identificador=dni_cliente,
+                           nuevo_estado=NULL,
+                           posicion=5,
+                           archivo=ARCHIVO_CLIENTES)
+    time.sleep(0.7)
+    print("Se registro la devolucion")
