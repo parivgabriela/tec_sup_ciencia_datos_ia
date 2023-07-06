@@ -1,9 +1,10 @@
 import os
 import time
 
-from constants import ARCHIVO_CLIENTES
+from constants import ARCHIVO_CLIENTES, ESTADO_CLIENTE_LIBRE
 from validations import validate_number, validate_str
-from gestion_prestamo import existe_dni_en_clientes, cambiar_estado_archivo, cambiar_estado_cliente
+from gestion_prestamo import existe_dni_en_clientes, cambiar_estado_archivo, cambiar_estado_cliente, existe_isbn_en_libros
+
 '''
         A - Alta de cliente
         C - Consulta estado del cliente
@@ -43,7 +44,8 @@ def client_status():
     if consulta == '':
         print("No existe un cliente con el dni ingresado")
     elif consulta[4] == 'O':
-        print("Estado: Ocupado")
+        isbn_info = existe_isbn_en_libros(consulta[5])
+        print(f"\nEl cliente {consulta[1]} tiene en prestamo el libro: {isbn_info[1]}\n")
     elif consulta[4] == 'L':
         print("Estado: Libre")
     elif consulta[4] == 'B':
@@ -98,11 +100,14 @@ def delete_client_view():
     consulta = existe_dni_en_clientes(dni)
 
     if consulta != '':
-        print(datos_cliente.format(dni=dni,nombre=consulta[1]))
-        option = input(MSG_CONFIRMATION)
-        if option.lower() == 'si':
-            delete_client(dni)
-        elif option.lower() == 'no':
-            print("Operación cancelada")
+        if consulta[4] == ESTADO_CLIENTE_LIBRE:
+            print(datos_cliente.format(dni=dni,nombre=consulta[1]))
+            option = input(MSG_CONFIRMATION)
+            if option.lower() == 'si':
+                delete_client(dni)
+            elif option.lower() == 'no':
+                print("Operación cancelada")
+        else:
+            print("Operación cancelada. El cliente no se encuentra libre de prestamos")
     else:
         print(f"El número de dni {dni} no existe")
