@@ -132,8 +132,9 @@ def existe_dni_en_clientes(dni_cliente):
     dni_encontrado = existe_elemento_en_archivo(identificador=dni_cliente,
                                                 archivo=ARCHIVO_CLIENTES,
                                                 posicion=COL_IDENTIFICADOR)
-    if dni_encontrado[4] == ESTADO_CLIENTE_ELIMINADO:
-        dni_encontrado = ''
+    if dni_encontrado != '':
+        if dni_encontrado[4] == ESTADO_CLIENTE_ELIMINADO:
+            dni_encontrado = ''
 
     return dni_encontrado
 

@@ -2,7 +2,10 @@ isbn,titulo,autor,estado,dni_cliente
 9789508070067,MATEMATICA - TEORICA,Eudeba,D,
 5454654656546,FISICA - EXPERIMENTAL,UTN,D,
 2342342342433,QUIMICA - PRINCIPIOS BASICOS,CBC,D,
-12345678910,ANALISIS MATEMATICO,CBC,P,123456789,
+12345678910,ANALISIS MATEMATICO,CBC,D,
 99999999999,Ciencia de datos en python,R. Autor,D,
-77777777777,Python avanzado,Steph,D,
-22222222222,Tecnicas de programacion,Ana,D
+77777777777,Python avanzado,Steph,P,27654321
+22222222222,Tecnicas de programacion,Ana,D,
+999999888888,Contabilidad,Dr. Fermin,D,
+11111111111,Bases de datos con excel,Whirl,D,
+454545454545,un libro cualquiera,Anonimo,B,

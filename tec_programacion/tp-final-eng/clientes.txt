@@ -1,7 +1,10 @@
 dni,nombre_completo,telefono,direccion,estado,isbn
-27654321,Ana Hidalgo,46242087,Mi casa 123,L,
-654321,demo,34543534,otra casa,L,
-123456789,otro demo,234234234,otra casa 4321,O,123456789
-1010999999999,ertertret erter,54435435,alguna casa 775,O,5454654656546
+27654321,Ana Hidalgo,46242087,Mi casa 123,O,77777777777
+6543211,demo,34543534,otra casa,B,
+123456789,Esteban Quito,234234234,Paso 985,L,
+10109999,ertertret erter,54435435,Rivadavia 9888,O,5454654656546
 38777777,Li Xiu,08009896, rivadavia 4052 pb,L,
 3899999,pepe pepin,08005556,Av corrientes 9865,L,
+789789789,Pérez Nuñez,87978754,carlos calvo 235,L,
+13131313,Ana Vallejos,456464645,Rivadavia 7898,L,
+98989898,Dalia Gutman,34523424,libertador ,L,

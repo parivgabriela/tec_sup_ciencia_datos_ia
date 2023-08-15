@@ -4,6 +4,7 @@ from gestion_prestamo import mostrar_libros_disponibles, iniciar_prestamo, inici
 from disponibilidad import consultar_disponibilidad_por_titulo
 from gestion_clientes import new_client, client_status, modify_client_information, delete_client_view
 from gestion_libros import new_book_view, get_book_view, modify_book_view, delete_book_view
+from validations import validar_respuesta_si_no
 
 # constants
 HEADER = """
@@ -14,8 +15,8 @@ HEADER = """
     ######################################
 
 """
-EXIT_MESSAGE = 'Do you want to exit? [Yes/No] '
-SELECT_OPTION_MSG = 'Select an option: '
+EXIT_MESSAGE = 'desea salir? [si/no] '
+SELECT_OPTION_MSG = 'Elija una opcion: '
 
 def menu_consulta_disponibilidad():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -31,10 +32,9 @@ def menu_consulta_disponibilidad():
         nombre_libro = input(msj)
         consultar_disponibilidad_por_titulo(nombre_libro)
 
-        opcion_salida = input(msj_opcion_continuar)
-
-        if opcion_salida == 'no':
-            print('adios')
+        opcion_salida = validar_respuesta_si_no(msj_opcion_continuar)
+        
+        if opcion_salida.lower() == 'no':
             estado = False
         else:
             os.system('cls' if os.name == 'nt' else 'clear')
@@ -71,36 +71,34 @@ def menu_prestamo_libro():
         if opcion.lower() == 'a':
             while estado_opcion:
                 mostrar_libros_disponibles()
-                opcion_salida = input(msj_salida_consulta)
+                opcion_salida = validar_respuesta_si_no(msj_salida_consulta)
+
                 if opcion_salida.lower() == 'no':
-                    estado_opcion = False
-                elif opcion_salida.lower() == 'si':
-                    estado_opcion = True
+                    estado = False
                 else:
-                    print("Respuesta invalida.")
-                    opcion_salida = input(msj_salida_consulta)
+                    os.system('cls' if os.name == 'nt' else 'clear')
+
         elif opcion.lower() == 'b':
             while estado_opcion:
                 iniciar_prestamo()
-                opcion_salida = input(msj_salida_prestamo)
-                if opcion_salida.lower() == 'si':
-                    estado_opcion = True
-                else:
+                opcion_salida = validar_respuesta_si_no(msj_salida_prestamo)
+
+                if opcion_salida.lower() == 'no':
                     estado_opcion = False
+
         elif opcion.lower() == 'c':
             while estado_opcion:
                 iniciar_devolucion()
-                opcion_salida = input(msj_salida_devolucion)
-                if opcion_salida.lower() == 'si':
-                    estado_opcion = True
-                else:
+                opcion_salida = validar_respuesta_si_no(msj_salida_devolucion)
+
+                if opcion_salida.lower() == 'no':
                     estado_opcion = False
+
         elif opcion.lower() == 'x':
             opcion_salida = input(EXIT_MESSAGE)
             if opcion_salida.lower() == 'si':
                 estado = False
-            else:
-                estado = True
+
         else:
             print(msj_opcion_incorrecta)
             print(msj_advertencia)
@@ -140,41 +138,38 @@ def menu_gestion_cliente():
         if opcion.lower() == 'a':
             while estado_opcion:
                 new_client()
-                opcion_salida = input(msj_alta_cliente)
+                opcion_salida = validar_respuesta_si_no(msj_alta_cliente)
+
                 if opcion_salida.lower() == 'si':
                     estado_opcion = False
-                else:
-                    estado_opcion = True
+
         elif opcion.lower() == 'c':
             while estado_opcion:
                 client_status()
-                opcion_salida = input(msj_consulta_cliente)
-                if opcion_salida.lower() =='si':
-                    estado_opcion = True
-                else:
+                opcion_salida = validar_respuesta_si_no(msj_consulta_cliente)
+
+                if opcion_salida.lower() =='no':
                     estado_opcion = False
+
         elif opcion.lower() == 'm':
             while estado_opcion:
                 modify_client_information()
-                opcion_salida = input(msj_modificacion)
-                if opcion_salida.lower() =='si':
-                    estado_opcion = True
-                else:
+                opcion_salida = validar_respuesta_si_no(msj_modificacion)
+
+                if opcion_salida.lower() =='no':
                     estado_opcion = False
+
         elif opcion.lower() == 'e':
             while estado_opcion:
                 delete_client_view()
-                opcion_salida = input(msj_eliminacion)
-                if opcion_salida.lower() == 'si':
-                    estado_opcion = True
-                else:
-                    estado_opcion = False
+                opcion_salida = validar_respuesta_si_no(msj_eliminacion)
+
+                if opcion_salida.lower() == 'no':
+                    estado_opcion = False 
+
         elif opcion.lower() == 'x':
-            opcion_salida = input(msj_salida)
             if opcion_salida.lower() == 'si':
                 estado = False
-            else:
-                estado = True
         else:
             print(msj_opcion_incorrecta)
             print(msj_advertencia)
@@ -212,41 +207,38 @@ def menu_gestion_libros():
         if opcion.lower() == 'a':
             while estado_opcion:
                 new_book_view()
-                opcion_salida = input(msj_alta)
-                if opcion_salida.lower() == 'si':
-                    estado_opcion = True
-                else:
+                opcion_salida = validar_respuesta_si_no(msj_alta)
+
+                if opcion_salida.lower() == 'no':
                     estado_opcion = False
+
         elif opcion.lower() == 'c':
             while estado_opcion:
                 get_book_view()
-                opcion_salida = input(msj_consulta)
-                if opcion_salida.lower() == 'si':
-                    estado_opcion = True
-                else:
+                opcion_salida = validar_respuesta_si_no(msj_consulta)
+
+                if opcion_salida.lower() == 'no':
                     estado_opcion = False
+
         elif opcion.lower() == 'm':
             while estado_opcion:
                 modify_book_view()
-                opcion_salida = input(msj_modificar)
-                if opcion_salida.lower() == 'si':
-                    estado_opcion = True
-                else:
+                opcion_salida = validar_respuesta_si_no(msj_modificar)
+
+                if opcion_salida.lower() == 'no':
                     estado_opcion = False
+
         elif opcion.lower() == 'e':
             while estado_opcion:
                 delete_book_view()
-                opcion_salida = input(msj_eliminar)
-                if opcion_salida.lower() == 'si':
-                    estado_opcion = True
-                else:
+                opcion_salida = validar_respuesta_si_no(msj_eliminar)
+
+                if opcion_salida.lower() == 'no':
                     estado_opcion = False
+
         elif opcion.lower() == 'x':
-            opcion_salida = input(EXIT_MESSAGE)
-            if opcion_salida.lower() == 'si':
-                estado = False
-            else:
-                estado = True
+            estado = False
+
         else:
             print(msj_opcion_incorrecta)
             print(msj_advertencia)
@@ -297,4 +289,3 @@ def menu_principal():
             print(msj_opcion_incorrecta)
             print(msj_advertencia)
             time.sleep(1.5)
-            

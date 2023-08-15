@@ -46,3 +46,27 @@ def validate_str(message_input, len_n):
             # todo check accents in prints
             print(f"Por favor intente nuevamente")
     return cadena
+
+def normalize(word):
+    replacements = (
+        ("á", "a"),
+        ("é", "e"),
+        ("í", "i"),
+        ("ó", "o"),
+        ("ú", "u"),
+        ("ü", "u"),
+    )
+    for a, b in replacements:
+        word = word.replace(a, b).replace(a.upper(), b.upper())
+    return word
+
+def validar_respuesta_si_no(mensaje):
+    estado = True
+    
+    while estado:
+        opcion_salida = input(mensaje)
+        if opcion_salida.lower() != 'no' and opcion_salida.lower() != 'si':
+            print("Opción incorrecta. Ingrese si o no")
+        elif opcion_salida.lower() == 'no' or opcion_salida.lower() == 'si':
+            estado = False
+    return opcion_salida.lower()
