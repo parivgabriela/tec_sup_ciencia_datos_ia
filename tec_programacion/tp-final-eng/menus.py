@@ -74,7 +74,7 @@ def menu_prestamo_libro():
                 opcion_salida = validar_respuesta_si_no(msj_salida_consulta)
 
                 if opcion_salida.lower() == 'no':
-                    estado = False
+                    estado_opcion = False
                 else:
                     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -95,9 +95,7 @@ def menu_prestamo_libro():
                     estado_opcion = False
 
         elif opcion.lower() == 'x':
-            opcion_salida = input(EXIT_MESSAGE)
-            if opcion_salida.lower() == 'si':
-                estado = False
+            estado = False
 
         else:
             print(msj_opcion_incorrecta)
@@ -168,8 +166,7 @@ def menu_gestion_cliente():
                     estado_opcion = False 
 
         elif opcion.lower() == 'x':
-            if opcion_salida.lower() == 'si':
-                estado = False
+            estado = False
         else:
             print(msj_opcion_incorrecta)
             print(msj_advertencia)
