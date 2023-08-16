@@ -17,16 +17,19 @@ from gestion_prestamo import existe_dni_en_clientes, cambiar_estado_archivo, cam
 def new_client():
     len_n = 7 # longitud minima de un documento
     dni = validate_number('DNI', len_n)
-    name = validate_str('nombre', 2)
-    last_name = validate_str('apellido', 2)
-    full_name = name + ' ' + last_name
-    address = input("Ingrese dirección completa: ")
-    phone = validate_number("numero de telefono", 8)
     consulta = existe_dni_en_clientes(dni)
+
     if consulta == '':
+        name = validate_str('nombre', 2)
+        last_name = validate_str('apellido', 2)
+        full_name = name + ' ' + last_name
+        address = input("Ingrese dirección completa: ")
+        phone = validate_number("numero de telefono", 8)
         add_new_client(dni, full_name, address, phone)
     else:
         print("Error: existe otro cliente con el mismo dni")
+    
+    
 
 def add_new_client(dni, full_name, address, phone_number):
     new_client_line = f"\n{dni},{full_name},{phone_number},{address},L,"
