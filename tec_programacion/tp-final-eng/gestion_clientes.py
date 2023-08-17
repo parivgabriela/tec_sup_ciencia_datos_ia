@@ -16,7 +16,7 @@ from gestion_prestamo import existe_dni_en_clientes, cambiar_estado_archivo, cam
 
 def new_client():
     len_n = 7 # longitud minima de un documento
-    dni = validate_number('DNI', len_n)
+    dni = validate_number('DNI',len_n, len_n+1)
     consulta = existe_dni_en_clientes(dni)
 
     if consulta == '':
@@ -24,7 +24,7 @@ def new_client():
         last_name = validate_str('apellido', 2)
         full_name = name + ' ' + last_name
         address = input("Ingrese dirección completa: ")
-        phone = validate_number("numero de telefono", 8)
+        phone = validate_number("numero de telefono", len_n, len_n + 3)
         add_new_client(dni, full_name, address, phone)
     else:
         print("Error: existe otro cliente con el mismo dni")
@@ -41,7 +41,7 @@ def add_new_client(dni, full_name, address, phone_number):
         print("error al guardar cliente nuevo")
 
 def client_status():
-    dni = validate_number('DNI', 7)
+    dni = validate_number('DNI', 7, 8)
     consulta = existe_dni_en_clientes(dni)
     ##revisar que numero trae
     if consulta == '':
@@ -57,7 +57,7 @@ def client_status():
 def update_data_client(new_data, position):
     POS_ADDRESS = 3
     POS_PHONE = 2
-    dni = validate_number('dni', 7)
+    dni = validate_number('dni', 7, 8)
     consulta = existe_dni_en_clientes(dni)
     if consulta != '':
         print("Modificando datos...")
@@ -86,7 +86,7 @@ def modify_client_information():
         new_address = input("Nueva direccion: ")
         update_data_client(new_address, 3)
     elif option.lower() == 'b':
-        new_phone = validate_number("telefono", 7)
+        new_phone = validate_number("telefono", 7, 10)
         update_data_client(new_phone, 2)
     else:
         print("Opción incorrecta")
@@ -99,7 +99,7 @@ def delete_client(dni):
 def delete_client_view():
     datos_cliente = "Cliente: {dni}, nombre conpleto {nombre}"
     MSG_CONFIRMATION = 'Desea continuar? [si/no] '
-    dni = validate_number('dni', 7)
+    dni = validate_number('dni', 7, 8)
     consulta = existe_dni_en_clientes(dni)
 
     if consulta != '':
