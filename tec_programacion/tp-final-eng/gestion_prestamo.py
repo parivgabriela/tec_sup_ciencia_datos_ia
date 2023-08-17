@@ -22,7 +22,10 @@ def leer_archivo(path):
     """
     list_file = []
     with open(path, 'r') as file:
-        list_file = file.readlines()
+        for line in file:
+            if line != '\n':
+                list_file.append(line)
+        #list_file = file.readlines()
 
     return list_file
 
