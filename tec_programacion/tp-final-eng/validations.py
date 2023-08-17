@@ -1,11 +1,12 @@
 # validations
 
-def validate_number(message_input, len_n):
+def validate_number(message_input, len_min, len_max):
     """return a valid number that its len >= len_n
 
     Args:
         message_input (str): input message to print
-        len_n (int): min require to validate number
+        len_min (int): min require to validate number
+        len_max (int): max require to validate number
 
     Returns:
         str: validate number, but it'll work as a string
@@ -15,7 +16,7 @@ def validate_number(message_input, len_n):
         try:
             identificador = input(f"Ingrese numero de {message_input}: ")
             identificador_int = int(identificador)
-            if len(identificador) >= len_n:
+            if len(identificador) >= len_min and len(identificador) <= len_max:
                 valido = False
             else:
                 print("El numero ingresado es muy corto")

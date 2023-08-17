@@ -94,6 +94,8 @@ def menu_prestamo_libro():
                 if opcion_salida.lower() == 'no':
                     estado_opcion = False
 
+                os.system('cls' if os.name == 'nt' else 'clear')
+
         elif opcion.lower() == 'x':
             estado = False
 
@@ -140,6 +142,7 @@ def menu_gestion_cliente():
 
                 if opcion_salida.lower() == 'si':
                     estado_opcion = False
+                os.system('cls' if os.name == 'nt' else 'clear')
 
         elif opcion.lower() == 'c':
             while estado_opcion:
