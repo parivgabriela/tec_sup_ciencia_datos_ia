@@ -1,64 +1,76 @@
-# TÉCNICAS DE PROCES. DIGITAL DE IMÁGENES
+# Técnicas de Procesamiento Digital de Imágenes
 
-## Procesamiento Digital de Imágenes - Proyecto Integrador
+Este repositorio contiene material de estudio, ejercicios y trabajos prácticos desarrollados durante la cursada de Técnicas de Procesamiento Digital de Imágenes.
 
-Este repositorio contiene un proyecto integrador desarrollado para la materia de Procesamiento Digital de Imágenes del IFTS 24. Consiste en una serie de ejercicios prácticos que exploran conceptos fundamentales del procesamiento de imágenes utilizando Python.
-Contenido del Proyecto
-El notebook incluye tres ejercicios principales:
+## Estructura del Repositorio
 
-### 1. Espacios de Color
+- **Ejercicios en Clase**: Contiene implementaciones prácticas de conceptos abordados durante las clases
+- **Trabajo Integrador**: Proyecto final que aplica múltiples conceptos de la materia en un caso práctico
 
-Análisis de canales BGR/RGB
-Separación de canales de color
-Conversión entre espacios de color
-Análisis de información por canal
+## Contenido Temático
 
-### 2. Muestreo y Cuantización
+### Unidad 1: Fundamentos de Imágenes Digitales
+- Conceptos básicos de procesamiento digital
+- Representación de imágenes digitales
+- Principios de la cámara oscura
+- Proceso de digitalización: muestreo y cuantificación
 
-Aplicación de muestreo espacial con diferentes factores (2, 4 y 8)
-Cálculo de reducción de datos para cada caso
-Aplicación de cuantización con diferentes niveles (32, 64, 128, 256)
-Análisis visual de degradación de imagen
-Generación de histogramas
+### Unidad 2: Almacenamiento y Características Básicas
+- Formatos de almacenamiento
+- Sistemas de paletas de colores
+- Propiedades: contraste, brillo e intensidad
+- Análisis de histogramas
 
-### 3. Segmentación por Color
+### Unidad 3: Técnicas Básicas de Procesamiento
+- Operadores de realce de imagen
+- Funciones de punto
+- Tratamiento de tonos
+- Expansión de escala de grises
+- Reducción de ruido y suavizado
+- Algoritmos de detección de bordes
 
-Segmentación basada en umbrales RGB
-Histogramas de imagen en escala de grises
-Detección de objetos por color
-Cálculo de coordenadas para rectángulos delimitadores
-Dibujo de bordes en objetos segmentados
-Aplicación de operaciones morfológicas para refinar la segmentación
+### Unidad 4: Operaciones Geométricas
+- Transformaciones espaciales
+- Tratamiento de firmas y objetos definidos
 
-## Librerías Utilizadas
+### Unidad 5: Análisis de Objetos
+- Correlación entre objetos
+- Análisis de texturas
+- Técnicas de medición de parámetros
 
-OpenCV (cv2): Principal librería para procesamiento de imágenes
-NumPy: Manipulación eficiente de arrays y operaciones matemáticas
-Matplotlib: Visualización de imágenes y generación de gráficos
-Funciones personalizadas para facilitar el procesamiento y análisis
+### Unidad 6: Cálculo de Propiedades Geométricas
+- Métodos para cálculo de perímetros
+- Determinación de áreas en superficies cerradas
 
-## Técnicas Aplicadas
+### Unidad 7: Introducción a Visión por Computadora
+- Conceptos fundamentales
+- Objetivos y problemas comunes
+- Enfoques clásicos vs. actuales
 
-Desenfoque Gaussiano
-Operaciones morfológicas (apertura y cierre)
-Detección de contornos
-Histogramas de color
-Transformaciones de color
-Segmentación mediante máscaras
+### Unidad 8: Visión Computacional Tradicional
+- Espacios de color
+- Técnicas de segmentación:
+  - Umbralización
+  - Region Growing
+  - Watershed
+- Clasificación y detección de objetos
 
-## Requisitos
-Para ejecutar este notebook necesitarás:
+### Unidad 9: Visión Computacional Avanzada
+- Redes neuronales convolucionales (CNNs)
+- Mecanismos de atención visual
+- Visual Transformers
 
-pip install opencv-python numpy matplotlib
 
-Imágenes Utilizadas
-El proyecto utiliza varias imágenes de prueba, incluyendo:
+## Referencias y Recursos
 
-Una imagen de un parque con flores para el análisis de espacios de color
-Una imagen de astronautas en escala de grises para muestreo y cuantización
-Una imagen de especias coloridas para segmentación por color
+- [OpenCV Documentation](https://docs.opencv.org/)
+- [Scikit-image: Image processing in Python](https://scikit-image.org/)
+- [Digital Image Processing - Gonzalez & Woods](https://www.pearson.com/us/higher-education/program/Gonzalez-Digital-Image-Processing-4th-Edition/PGM241219.html)
 
-Autor
-Gabriela Pari Vaca - IFTS 24
+## Trabajo Integrador
 
-Proyecto desarrollado como trabajo integrador para la materia de Técnicas de Procesamiento Digital de Imágenes del Instituto de Formación Técnica Superior N°24.
+El trabajo integrador consiste en un proyecto completo que aplica los conceptos estudiados durante la cursada para resolver un problema específico de procesamiento de imágenes o visión por computadora.
+
+## Contribuciones
+
+Este repositorio está diseñado principalmente para fines académicos. Sin embargo, sugerencias y correcciones son bienvenidas a través de pull requests.
