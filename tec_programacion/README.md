@@ -7,6 +7,8 @@ Este repositorio contiene el material desarrollado durante la cursada de "Técni
 ## Estructura del Repositorio
 
 ### Ejercicios en Clase
+[Link al repositorio](https://github.com/parivgabriela/tec_sup_ciencia_datos_ia/tree/main/tec_programacion/ejercicios_clase)
+
 Esta carpeta contiene los ejercicios prácticos desarrollados durante la cursada, abordando diversos conceptos de Python:
     - Operaciones de entrada/salida (input/output)
     - Manejo de excepciones con try/except
@@ -15,7 +17,9 @@ Esta carpeta contiene los ejercicios prácticos desarrollados durante la cursada
     - Estructuras de control y estructuras de datos
     - Funciones y modularización
 
-### TP-Final: Sistema de Gestión de Biblioteca
+### TP-Final: Sistema de Gestión de Biblioteca 
+[Link al repositorio](https://github.com/parivgabriela/tec_sup_ciencia_datos_ia/tree/main/tec_programacion/tp-final)
+
 El trabajo práctico final consiste en un sistema completo de gestión para bibliotecas que permite:
 - Gestión de Libros
 - Alta de nuevos libros
@@ -50,13 +54,13 @@ git clone git@github.com:parivgabriela/tec_sup_ciencia_datos_ia.git
 ```
 2. Acceder al directorio del proyecto:
 ```bash
- codigo cd tec_sup_ciencia_datos_ia/tec_programacion
+cd tec_sup_ciencia_datos_ia/tec_programacion
 ```
 3. Para ejecutar el sistema de biblioteca:
 ```bash
 python tp-final/01_biblioteca.py
 ```
-Requisitos
+#### Requisitos
 
 Python 3.6 o superior
 
