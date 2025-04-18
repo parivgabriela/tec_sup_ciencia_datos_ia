@@ -1,0 +1,17 @@
+isbn,titulo,autor,estado,dni_cliente
+9789508070067,MATEMATICA - TEORICA,Eudeba,D,
+5454654656546,FISICA - EXPERIMENTAL,UTN,D,
+2342342342433,QUIMICA - PRINCIPIOS BASICOS,CBC,D,
+1234567891011,ANALISIS MATEMATICO,CBC,D,
+9999999999999,Ciencia de datos en python,R. Autor,D,
+7777777777777,Python avanzado,Steph,P,27654321
+2222222222222,Tecnicas de programacion,Ana,D,
+9999998888888,Contabilidad,Dr. Fermin,D,
+1111111111111,Bases de datos con excel,Whirl,D,
+4545454545454,un libro cualquiera,Anonimo,B,
+9879879879879,Sql con python, Anonimo,B,
+4564564564565,Ciencias de datos, ifts,B,
+1231231231231,Historia de la musica clasica,Raul,P,4578457
+7774441100088,Electricidad 1,Tesla,P,89888789
+
+7890009870000,Quimica,Aquiles,L,
