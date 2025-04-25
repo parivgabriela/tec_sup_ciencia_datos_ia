@@ -1,0 +1,230 @@
+21) Se tiene registrada la producción (en unidades) lograda por un operario a lo largo de la semana (lunes a sabado).
+Elabore un algoritmo que nos diga si el operario recibirá incentivo por productividad, sabiendo que el promedio de producción mínima es de
+100 unidades diarias.
+
+INICIO
+
+TOTAL_SEMANA = 0
+PROMEDIO = 0
+
+PARA INDICE = 1 HASTA 6 HACER
+   INGRESAR "Ingrese la produccion del día: ", PRODUCCION
+   TOTAL_SEMANA = TOTAL_SEMANA + PRODUCCION
+FIN-PARA
+
+PROMEDIO = TOTAL_SEMANA / 6
+
+SI PROMEDIO >= 100 ENTONCES
+   MOSTRAR "EL OPERARIO RECIBIRÁ INCENTIVO"
+SINO
+   MOSTRAR "EL OPERARIO NO RECIBIRÁ INCENTIVO"
+FIN-SI
+
+FIN
+
+
+22) Elabore un algoritmo para leer 3 numeros enteros diferentes entre sí y determinar el número mayor de los 3.
+
+INICIO
+
+LEER NUM_1
+LEER NUM_2
+LEER NUM_3
+
+SI (NUM_1 > NUM_2) y (NUM_1 > NUM_3) ENTONCES
+     MOSTRAR “EL NUM_1 ES MAYOR”
+SINO
+    SI (NUM_2 > NUM_1) y (NUM_2 > NUM_3) ENTONCES
+       MOSTRAR “EL NUMERO 2 ES MAYOR”
+    SINO
+       SI (NUM_3 > NUM_1) y (NUM_3 > NUM_2) ENTONCES
+          MOSTRAR “EL NUM_3 ES MAYOR”
+       FIN-SI
+    FIN-SI
+FIN-SI
+
+FIN
+
+
+23) Elabore un algoritmo que solicite la edad de 200 personas y muestre cuántas son 
+mayores y cuántas menores de edad.
+
+INICIO
+
+MAYORES = 0
+MENORES = 0
+INGRESE "Que edad es considerada como mayor de edad?", MAYOR_EDAD
+
+PARA INDICE = 1 HASTA 200 HACER
+   INGRESAR EDAD
+   SI EDAD >= MAYOR_EDAD ENTONCES
+      MAYORES = MAYORES + 1
+   SINO
+      MENORES = MENORES + 1
+   FIN-SI
+FIN-PARA
+
+MOSTRAR "LOS MAYORES DE EDAD SON: ", MAYORES
+MOSTRAR "LOS MENORES DE EDAD SON: ", MENORES
+
+FIN
+
+---------------- OTRA OPCION USANDO BUCLE MIENTRAS ----
+INICIO
+
+MAYORES = 0
+MENORES = 0
+INGRESE "Que edad es considerada como mayor de edad?", MAYOR_EDAD
+
+INDICE = 1
+MIENTRAS INDICE <= 200 HACER
+   INGRESAR EDAD
+   SI EDAD >= MAYOR_EDAD ENTONCES
+      MAYORES = MAYORES + 1
+   SINO
+      MENORES = MENORES + 1
+   FIN-SI
+   INDICE = INDICE + 1
+FIN-MIENTRAS
+
+MOSTRAR "LOS MAYORES DE EDAD SON: ", MAYORES
+MOSTRAR "LOS MENORES DE EDAD SON: ", MENORES
+
+FIN
+
+
+24) En una veterinaria se desea saber el promedio de edad de gatos y perros (por separado) que 
+fueron asistidos durante un mes.
+En total se registraron 200 animales y la veterinaria solo atiende gatos y perros.
+
+INICIO
+
+EDAD_GATO = 0
+CANT_GATO = 0
+EDAD_PERRO = 0
+CANT_PERRO = 0
+PROMEDIO_GATO = 0
+PROMEDIO_PERRO = 0
+
+PARA CANTIDAD = 1 HASTA 200 HACER
+    INGRESE "Ingrese 1 para Gato, 2 para Perro", ANIMAL
+    SI ANIMAL = 1 ENTONCES
+       INGRESE "Ingrese la edad del Gato:", EDAD
+       EDAD_GATO = EDAD_GATO + EDAD
+       CANT_GATO = CANT_GATO + 1
+    SINO
+       INGRESE "Ingrese la edad del Perro:", EDAD
+       EDAD_PERRO = EDAD_PERRO + EDAD
+       CANT_PERRO = CANT_PERRO + 1
+    FIN-SI
+FIN-PARA
+
+PROMEDIO_GATO = EDAD_GATO / CANT_GATO
+PROMEDIO_PERRO = EDAD_PERRO / CANT_PERRO
+
+MOSTRAR "La cantidad de gatos atendidos fue ", CANT_GATO, " y el promedio de edad es: ", PROMEDIO_GATO
+MOSTRAR "La cantidad de perros atendidos fue ", CANT_PERRO, " y el promedio de edad es: ", PROMEDIO_PERRO
+
+FIN
+
+
+25) Se pide lo mismo que el problema anterior, pero la diferencia radica en que no solo la veterinaria atiende gatos y perros, puede que sean
+otros animales también. Se pide contar la cantidad de esos animales que NO son ni gatos ni perros.
+
+INICIO
+
+PARA CANTIDAD = 1 HASTA 200 HACER
+    INGRESE "Ingrese 1 para Gato, 2 para Perro, 3 para Otro animal", ANIMAL
+    SI ANIMAL = 1 ENTONCES
+       INGRESE "Ingrese la edad del Gato:", EDAD
+       EDAD_GATO = EDAD_GATO + EDAD
+       CANT_GATO = CANT_GATO + 1
+    SINO
+       SI ANIMAL = 2 ENTONCES
+          INGRESE "Ingrese la edad del Perro:", EDAD
+          EDAD_PERRO = EDAD_PERRO + EDAD
+          CANT_PERRO = CANT_PERRO + 1
+       SINO
+          CANT_OTROS = CANT_OTROS + 1
+       FIN-SI
+    FIN-SI
+FIN-PARA
+
+PROMEDIO_GATO = EDAD_GATO / CANT_GATO
+PROMEDIO_PERRO = EDAD_PERRO / CANT_PERRO
+
+MOSTRAR "La cantidad de gatos atendidos fue ", CANT_GATO, " y el promedio de edad es: ", PROMEDIO_GATO
+MOSTRAR "La cantidad de perros atendidos fue ", CANT_PERRO, " y el promedio de edad es: ", PROMEDIO_PERRO
+MOSTRAR "La cantidad de otros animales atendidos es: ", CANT_OTROS
+
+FIN
+
+----------- OTRA OPCION ----------------------
+
+INICIO
+
+PARA CANTIDAD = 1 HASTA 200 HACER
+    INGRESE "Ingrese 1 para Gato, 2 para Perro, 3 para Otro animal", ANIMAL
+    SI ANIMAL = 1 ENTONCES
+       INGRESE "Ingrese la edad del Gato:", EDAD
+       EDAD_GATO = EDAD_GATO + EDAD
+       CANT_GATO = CANT_GATO + 1
+    SINO
+       SI ANIMAL = 2 ENTONCES
+          INGRESE "Ingrese la edad del Perro:", EDAD
+          EDAD_PERRO = EDAD_PERRO + EDAD
+          CANT_PERRO = CANT_PERRO + 1
+       FIN-SI
+    FIN-SI
+FIN-PARA
+
+CANT_OTROS = 200 - (CANT_GATO + CANT_PERRO)
+MOSTRAR "La cantidad de otros animales atendidos es: ", CANT_OTROS
+
+FIN
+
+---------------------- OTRA OPCION ---------------------
+INICIO
+
+PARA CANTIDAD = 1 HASTA 200 HACER
+    INGRESE "Ingrese 1 para Gato, 2 para Perro, 3 para Otro animal", ANIMAL
+    SI ANIMAL = 3 ENTONCES
+       CANT_OTROS = CANT_OTROS + 1
+    FIN-SI
+FIN-PARA
+
+MOSTRAR "La cantidad de otros animales atendidos es: ", CANT_OTROS
+
+FIN
+
+
+26) Elaborar un algoritmo que dados 10 numeros ingresados determine:
+a) Cantidad de numeros negativos
+b) Suma de los numeros que se encuentran entre 1 y 10 (no incluídos).
+c) Promedio de todos los numeros.
+
+INICIO
+
+NEGATIVOS = 0
+SUMA = 0
+PROMEDIO = 0
+
+PARA CANT = 1 HASTA 10 HACER
+   INGRESE "Ingrese un numero:", NUMERO
+   SI NUMERO < 0 ENTONCES
+      NEGATIVOS = NEGATIVOS + 1
+   SINO
+      SI NUMERO > 1 Y NUMERO < 10 ENTONCES
+         SUMA = SUMA + NUMERO
+      FIN-SI
+   FIN-SI
+   TOTAL = TOTAL + NUMERO
+FIN-PARA
+
+PROMEDIO = TOTAL / 10
+
+MOSTRAR "La cantidad de numeros negativos es: ", NEGATIVOS
+MOSTRAR "La suma de numeros entre 1 y 10 es: ", SUMA
+MOSTRAR "El promedio de todos los numeros es:", PROMEDIO
+
+FIN

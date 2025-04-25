@@ -1,0 +1,93 @@
+1) Ingresar precio y cantidad. Mostrar el total a pagar.
+
+2) Ingresar 2 valores, sumarlos y mostrar el resultado, 
+multiplicarlos y mostrar el resultado
+
+3) Calcular el perímetro de un cuadrado
+
+4) Ingresar 4 valores. Sumar los dos primeros, 
+multiplicar los dos ultimos y mostrar los resultados.
+
+5) Ingresan 4 valores, se pide el promedio y la suma. Mostrar ambos resultados
+
+6) Escriba el algoritmo para determinar la cantidad de minutos (y segundos) de acuerdo a una cantidad de segundo ingresados.
+
+7) Escriba un algoritmo que pida una distancia en pies y pulgadas y que escriba dicha distancia en centímetros. 
+Se recuerda que 
+1 PIE = 12 pulgadas 
+1 pulgada = 2,54 cm
+
+8) Escriba un algoritmo que pida una temperatura en grados Celsius y que convierta dicha
+temperatura en grados Fahrenheit. Se recuerda que la relacion entre grados Celsius (C)
+y grados Fahrenheit (F) es la siguiente: F = 1,8 * C + 32.
+
+9) Escriba un algoritmo que pregunte al usuario el número de horas trabajadas y el costo
+por hora. Determinar el pago de jornal que le corresponde.
+
+10) Calcular la distancia recorrida por un auto a velocidad constante y en un tiempo
+determinado. Tener en cuenta la fórmula de Movimiento Rectilineo Uniforme:
+Distancia = Velocidad * Tiempo 
+
+11) Calcular el promedio de notas obtenidas por un alumno, teniendo 7 notas en el año.
+
+12) Escribir un algoritmo que pregunte al usuario una cantidad a invertir, el interes anual,
+y el numero de años. Mostrar el capital obtenido en la inversión.
+
+13) Se pide determinar la calificación final de un examen, teniendo un nro de respuestas
+correctas que suman 4 puntos c/u, un nro de respuestas incorrectas que restan 1 punto c/u
+y un nro de respuestas en blanco.
+
+14) Dadas 10 notas ingresadas, informar cuántos aprobaron (se aprueba con 4)
+
+15) Ingresar un nro y mostrar su tabla de multiplicacion
+
+16) Ingresar cantidad de empleados de una empresa. Determinar cuantos ganan mas de 5000, 
+cuantos menos y el costo de la empresa en sueldos.
+
+17) Ingresar una cantidad de personas, por cada una: ingresar la estatura y mostrar el 
+promedio de altura final.
+
+18) Una juguetería tiene mucho éxito en dos de sus productos: payasos y muñecas. Suele hacer venta por correo y la empresa de logística
+les cbra por peso de cada paquete, asi que deben calcular el peso de los payasos y muñecas que saldrán en cada paquete a 
+demanda. Cada payaso 11,5 kg y cada muñeca 7,5 kg. Escribir un programa que lea el numero de payasos y muñecas vendidos 
+en el último pedido y calcule el peso total del paquete que será enviado.
+
+19) Elabore un algoritmo que solicite la edad de dos hermanos y muestre un mensaje 
+indicando la edad del mayor y cuántos años de diferencia tiene con el menor.
+
+21) Se tiene registrada la producción (en unidades) lograda por un operario a lo largo de la semana (lunes a sabado).
+Elabore un algoritmo que nos diga si el operario recibirá incentivo por productividad, sabiendo que el promedio de producción mínima es de
+100 unidades diarias.
+
+22) Elabore un algoritmo para leer 3 numeros enteros diferentes entre sí y determinar el número mayor de los 3.
+
+23) Elabore un algoritmo que solicite la edad de 200 personas y muestre cuántas son 
+mayores y cuántas menores de edad.
+
+24) En una veterinaria se desea saber el promedio de edad de gatos y perros (por separado) que 
+fueron asistidos durante un mes.
+En total se registraron 200 animales y la veterinaria solo atiende gatos y perros.
+
+25) Se pide lo mismo que el problema anterior, pero la diferencia radica en que no solo la veterinaria atiende gatos y perros, puede que sean
+otros animales también. Se pide contar la cantidad de esos animales que NO son ni gatos ni perros.
+
+26) Elaborar un algoritmo que dados 10 numeros ingresados determine:
+a) Cantidad de numeros negativos
+b) Suma de los numeros que se encuentran entre 1 y 10 (no incluídos).
+c) Promedio de todos los numeros.
+
+27) Se ingresan números enteros en forma aleatoria entre 0 y 200 hasta que la sumatoria de 
+los mismos sea mayor a 500. Al finalizar indicar:
+a) La cantidad de numeros nulos (0) leídos.
+b) La sumatoria de los números que se encuentran entre 10 y 100 (incluídos).
+c) El promedio de los números menores a 150.
+d) El número mayor ingresado.
+
+28) Elaborar un algoritmo para obtener el resultado del escrutinio en las elecciones del delegado escolar. 
+Considerar que hay 160 electores y se han presentado 3 candidatos. Todos votaron, se declara el ganador por
+mayoría simple.
+
+29) Elaborar un algoritmo que solicite el ingreso de una letra hasta que el operador ingrese un vocal.
+
+30) Calcular y mostrar la serie Fibonacci hasta 100. 
+Aclaración: cada número es la sumatoria de los dos precedentes, comenzando por 0 y 1. Entonces: 011235....

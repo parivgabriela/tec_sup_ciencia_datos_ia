@@ -1,0 +1,168 @@
+11) Calcular el promedio de notas obtenidas por un alumno, teniendo 7 notas en el año.
+
+INICIO
+
+PROMEDIO = 0
+TOTAL = 0
+
+INGRESAR NOTA1
+INGRESAR NOTA2
+INGRESAR NOTA3
+INGRESAR NOTA4
+INGRESAR NOTA5
+INGRESAR NOTA6
+INGRESAR NOTA7
+
+PROMEDIO = (NOTA1 + NOTA2 + NOTA3 + NOTA4 + NOTA5 + NOTA6 + NOTA7) / 7
+MOSTRAR PROMEDIO
+
+----------------------- OTRA OPCION CON PARA ------------------------
+
+PARA INDICE = 1 HASTA 7
+  INGRESAR NOTA
+  TOTAL = TOTAL + NOTA
+FIN-PARA
+
+PROMEDIO = TOTAL / 7
+MOSTRAR PROMEDIO
+
+---------------------- OTRA OPCION CON MIENTRAS -----------------------
+CANTIDAD = 1
+MIENTRAS CANTIDAD <= 7 HACER
+  INGRESAR NOTA
+  TOTAL = TOTAL + NOTA
+  CANTIDAD = CANTIDAD + 1
+FIN-MIENTRAS
+
+PROMEDIO = TOTAL / 7
+MOSTRAR PROMEDIO
+
+
+FIN
+
+
+
+12) Escribir un algoritmo que pregunte al usuario una cantidad a invertir, el interes anual,
+y el numero de años. Mostrar el capital obtenido en la inversión.
+
+
+INICIO
+
+GANANCIA = 0
+CAPITAL = 0
+
+INGRESAR CANT_INVERSION
+INGRESAR INTERES
+INGRESAR AÑOS
+
+GANANCIA = (CANT_INVERSION * INTERES / 100) * AÑOS
+CAPITAL = CANT_INVERSION + GANANCIA
+MOSTRAR CAPITAL
+
+FIN
+
+
+
+13) Se pide determinar la calificación final de un examen, teniendo un nro de respuestas
+correctas que suman 4 puntos c/u, un nro de respuestas incorrectas que restan 1 punto c/u
+y un nro de respuestas en blanco.
+
+INICIO
+
+NOTA_FINAL = 0
+
+INGRESAR RESPUESTAS_CORRECTAS
+INGRESAR RESPUESTAS_INCORRECTAS
+
+NOTA_FINAL = (RESPUESTAS_CORRECTAS * 4) - RESPUESTAS_INCORRECTAS
+MOSTRAR NOTA_FINAL
+
+FIN
+
+
+14) Dadas 10 notas ingresadas, informar cuántos aprobaron (se aprueba con 4)
+
+INICIO
+APROBADOS = 0
+PARA INDICE = 1 HASTA 10
+  INGRESAR NOTA
+  SI NOTA >= 4 ENTONCES
+     APROBADOS = APROBADOS + 1
+  FIN-SI
+FIN-PARA
+MOSTRAR APROBADOS
+FIN
+--------------- OTRA OPCION -------------
+INICIO
+APROBADOS = 0
+INDICE = 1
+MIENTRAS INDICE <= 10 HACER
+  INGRESAR NOTA
+  SI NOTA >= 4 ENTONCES
+     APROBADOS = APROBADOS + 1
+  FIN-SI
+  INDICE = INDICE + 1
+FIN-MIENTRAS
+MOSTRAR APROBADOS
+FIN
+
+
+15) Ingresar un nro y mostrar su tabla de multiplicacion
+
+INICIO
+
+RESULTADO = 0
+INGRESAR "Ingrese el Nro para el cual quiere ver su tabla:", NUMERO
+SI NUMERO > 0 ENTONCES
+   
+           MOSTRAR "LA TABLA DE ", NUMERO, " ES:"
+  	   PARA INDICE = 0 HASTA 10
+	      RESULTADO = NUMERO * INDICE
+              MOSTRAR NUMERO, "*", INDICE, "=", RESULTADO
+	   FIN PARA
+FIN-SI
+
+--------- OTRA OPCION ---------
+
+MOSTRAR "LA TABLA DE ", NUMERO, " ES:"
+INDICE = 0
+SI NUMERO > 0 ENTONCES
+  MIENTRAS INDICE <= 10 HACER
+      RESULTADO = NUMERO * INDICE
+      MOSTRAR NUMERO, "*", INDICE, "=", RESULTADO
+      INDICE = INDICE + 1
+  FIN PARA
+FIN-SI
+
+FIN
+
+16) Ingresar cantidad de empleados de una empresa. Determinar cuantos ganan mas de 5000, 
+cuantos menos y el costo de la empresa en sueldos.
+
+INICIO 
+
+INGRESAR CANT_EMPLEADOS
+CANTIDAD = 1
+SUELDO_MAYOR = 0
+SUELDO_MENOR = 0
+SUELDO_TOTAL = 0
+
+MIENTRAS CANTIDAD <= CANT_EMPLEADOS HACER
+
+   INGRESAR SUELDO
+   SI SUELDO > 5000 ENTONCES
+      SUELDO_MAYOR = SUELDO_MAYOR + 1
+   SINO
+      SUELDO_MENOR = SUELDO_MENOR + 1
+   FIN-SI
+   SUELDO_TOTAL = SUELDO_TOTAL + SUELDO
+
+   CANTIDAD = CANTIDAD + 1
+
+FIN-MIENTRAS
+
+MOSTRAR "LA CANTIDAD CON SUELDO MAYOR A 5000 ES: ", SUELDO_MAYOR
+MOSTRAR "LA CANTIDAD CON SUELDO MENOR O IGUAL A 5000 ES: ", SUELDO_MENOR
+MOSTRAR "LA EMPRESA PAGA UN TOTAL DE: ", SUELDO_TOTAL
+
+FIN

@@ -1,0 +1,63 @@
+27) Se ingresan números enteros en forma aleatoria entre 0 y 200 hasta que la sumatoria de 
+los mismos sea mayor a 500. Al finalizar indicar:
+a) La cantidad de numeros nulos (0) leídos.
+b) La sumatoria de los números que se encuentran entre 10 y 100 (incluídos).
+c) El promedio de los números menores a 150.
+d) El número mayor ingresado.
+
+INICIO
+
+SUMA = 0
+NULOS = 0
+SUMA-DIEZ-CIEN = 0
+SUMO-MENORES = 0
+CANT-MENORES = 0
+NUM_MAYOR = 0
+
+MIENTRAS SUMA <= 500 HACER
+   INGRESE "Ingrese un numero entre 0 y 200", NUMERO
+   SI NUMERO < 0 o NUMERO > 200 ENTONCES
+      MOSTRAR "El rango de ingreso es 0 a 200, ingrese nuevamente."
+   SINO
+     SI NUMERO = 0 ENTONCES
+        NULOS = NULOS + 1
+     SINO
+         SI NUMERO < 150 ENTONCES
+           SUMO-MENORES = SUMO-MENORES + NUMERO
+           CANT-MENORES = CANT-MENORES + 1
+           SI NUMERO >= 10 Y NUMERO <= 100 ENTONCES
+              SUMA-DIEZ-CIEN = SUMA-DIEZ-CIEN + NUMERO
+           FIN-SI
+        FIN-SI
+     FIN-SI
+     SI NUM_MAYOR = 0 ENTONCES
+        NUM_MAYOR = NUMERO
+     SINO
+        SI NUMERO > NUM_MAYOR ENTONCES
+           NUM_MAYOR = NUMERO
+        FIN-SI
+     FIN-SI
+     SUMA = SUMA + NUMERO
+   FIN-SI
+FIN-MIENTRAS
+
+PROMEDIO = SUMO-MENORES / CANT-MENORES
+
+MOSTRAR "La cantidad de numeros nulos es: ", NULOS
+MOSTRAR "La suma de numeros entre 10 y 100 es: ", SUMA-DIEZ-CIEN
+MOSTRAR "El promedio de los numeros menores a 150 es: ", PROMEDIO
+MOSTRAR "El numero mayor ingresado es: ", NUM_MAYOR
+
+FIN
+
+28) Elaborar un algoritmo para obtener el resultado del escrutinio en las elecciones del delegado escolar. 
+Considerar que hay 160 electores y se han presentado 3 candidatos. Todos votaron, se declara el ganador por
+mayoría simple.
+
+
+29) Elaborar un algoritmo que solicite el ingreso de una letra hasta que el operador ingrese un vocal.
+
+
+30) Calcular y mostrar la serie Fibonacci hasta 100. 
+Aclaración: cada número es la sumatoria de los dos precedentes, comenzando por 0 y 1. Entonces: 011235....
+

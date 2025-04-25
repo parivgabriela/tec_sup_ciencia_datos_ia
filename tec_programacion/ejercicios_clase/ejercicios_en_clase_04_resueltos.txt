@@ -1,0 +1,66 @@
+17) Ingresar una cantidad de personas, por cada una: ingresar la estatura y mostrar el 
+promedio de altura final.
+
+INICIO
+
+Ingresar cant_personas
+
+Total_estatura = 0
+Promedio = 0
+
+Para Cantidad desde 1 hasta cant_personas
+    Ingresar  estatura
+    Total_estatura = Total_estatura + estatura
+Fin-Para
+
+Promedio = Total_estatura / cant_personas
+Mostrar Promedio
+
+FIN
+
+
+18) Una juguetería tiene mucho éxito en dos de sus productos: payasos y muñecas. Suele hacer venta por correo y la empresa de logística
+les cbra por peso de cada paquete, asi que deben calcular el peso de los payasos y muñecas que saldrán en cada paquete a 
+demanda. Cada payaso 11,5 kg y cada muñeca 7,5 kg. Escribir un programa que lea el numero de payasos y muñecas vendidos 
+en el último pedido y calcule el peso total del paquete que será enviado.
+
+
+INICIO
+
+PESO_TOTAL = 0
+
+INGRESAR CANT_PAYASOS
+INGRESAR CANT_MUÑECAS
+
+PESO_TOTAL = (CANT_PAYASOS * 11.5) + (CANT_MUÑECAS * 7.5)
+
+MOSTRAR "EL PESO TOTAL DEL PAQUETE ES: ", PESO_TOTAL
+
+FIN
+
+
+19) Elabore un algoritmo que solicite la edad de dos hermanos y muestre un mensaje 
+indicando la edad del mayor y cuántos años de diferencia tiene con el menor.
+
+INICIO
+
+DIFERENCIA = 0
+
+INGRESAR EDAD_1
+INGRESAR EDAD_2
+
+SI EDAD_1 > EDAD_2 ENTONCES
+   DIFERENCIA = EDAD_1 - EDAD_2
+   MOSTRAR "EL HERMANO 1 ES MAYOR"
+   MOSTRAR "LA DIFERENCIA DE EDAD ES: ", DIFERENCIA
+SINO
+  SI EDAD_1 < EDAD_2 ENTONCES
+     DIFERENCIA = EDAD_2 - EDAD_1
+     MOSTRAR "EL HERMANO 2 ES MAYOR"
+     MOSTRAR "LA DIFERENCIA DE EDAD ES: ", DIFERENCIA
+  SINO
+     MOSTRAR "LOS HERMANOS TIENEN LA MISMA EDAD"
+  FIN-SI
+FIN-SI
+
+FIN

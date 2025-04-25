@@ -1,0 +1,91 @@
+6) Escriba el algoritmo para determinar la cantidad de minutos (y segundos) de acuerdo a una cantidad de segundo ingresados.
+
+INICIO
+
+DIFERENCIA = 0
+RESTO = 0
+
+LEER SEGUNDOS
+SI SEGUNDOS < 60 ENTONCES
+  MOSTRAR "SEGUNDOS INGRESADOS MENOR A 1 MINUTO"
+SINO
+  MINUTOS = SEGUNDOS / 60            */ (PARTE ENTERA)
+  DIFERENCIA = MINUTOS * 60
+  SI SEGUNDOS > DIFERENCIA ENTONCES
+    RESTO = SEGUNDOS - DIFERENCIA
+  FIN-SI
+FIN-SI
+
+MOSTRAR "SON: ", MINUTOS, " MINUTOS Y SEGUNDOS: ", RESTO
+
+FIN
+
+
+7) Escriba un algoritmo que pida una distancia en pies y pulgadas y que escriba dicha distancia en centímetros. 
+Se recuerda que 
+1 PIE = 12 pulgadas 
+1 pulgada = 2,54 cm
+
+INICIO
+
+CENTI_PULGADAS = 0
+CENTI_PIES = 0
+TOTAL = 0
+
+LEER PULGADAS
+LEER PIES
+
+CENTI_PULGADAS = PULGADAS * 2,54
+CENTI_PIES = (PIES * 12) * 2,54
+
+TOTAL = CENTI_PULGADAS + CENTI_PIES
+
+MOSTRAR CENTI_PULGADAS
+MOSTRAR CENTI_PIES
+MOSTRAR TOTAL
+
+FIN
+
+
+
+8) Escriba un algoritmo que pida una temperatura en grados Celsius y que convierta dicha
+temperatura en grados Fahrenheit. Se recuerda que la relacion entre grados Celsius (C)
+y grados Fahrenheit (F) es la siguiente: F = 1,8 * C + 32.
+
+INICIO
+
+LEER CELSIUS
+FAHR = 1,8 * CELCIUS + 32
+MOSTRAR FAHR
+
+FIN
+
+
+9) Escriba un algoritmo que pregunte al usuario el número de horas trabajadas y el costo
+por hora. Determinar el pago de jornal que le corresponde.
+
+INICIO
+JORNAL = 0
+INGRESAR HORAS
+INGRESAR COSTO_HORA
+JORNAL = HORAS * COSTO_HORAS
+MOSTRAR JORNAL
+FIN
+
+
+10) Calcular la distancia recorrida por un auto a velocidad constante y en un tiempo
+determinado. Tener en cuenta la fórmula de Movimiento Rectilineo Uniforme:
+Distancia = Velocidad * Tiempo 
+
+INICIO
+
+DISTANCIA = 0
+
+INGRESAR VELOCIDAD
+INGRESAR TIEMPO
+
+DISTANCIA = VELOCIDAD * TIEMPO
+MOSTRAR DISTANCIA
+
+FIN
+

@@ -1,0 +1,79 @@
+1) Ingresar precio y cantidad. Mostrar el total a pagar.
+INICIO
+
+TOTAL = 0
+INGRESAR PRECIO
+INGRESAR CANTIDAD
+TOTAL = PRECIO * CANTIDAD
+ESCRIBIR TOTAL
+
+FIN
+
+2) Ingresar 2 valores, sumarlos y mostrar el resultado, 
+multiplicarlos y mostrar el resultado
+
+INICIO
+
+SUMA = 0
+MULTIPLICACION = 0
+
+INGRESAR NUM1 
+INGRESAR NUM2
+
+SUMA = NUM1 + NUM2
+MOSTRAR SUMA
+
+MULTIPLICACION = NUM1 * NUM2
+MOSTRAR MULTIPLICACION
+
+FIN
+
+3) Calcular el perímetro de un cuadrado
+
+INICIO
+
+PERIMETRO = 0
+
+INGRESAR LADO
+PERIMETRO = LADO * 4
+MOSTRAR PERIMETRO
+
+FIN
+
+4) Ingresar 4 valores. Sumar los dos primeros, 
+multiplicar los dos ultimos y mostrar los resultados.
+
+INICIO
+
+SUMAR = 0
+MULTI = 0
+
+INGRESAR VALOR1
+INGRESAR VALOR2
+INGRESAR VALOR3
+INGRESAR VALOR4
+
+SUMAR = VALOR1 + VALOR2
+MULTI = VALOR3 * VALOR4
+MOSTRAR SUMAR
+MOSTRAR MULTI
+
+FIN
+
+5) Ingresan 4 valores, se pide el promedio y la suma. Mostrar ambos resultados
+
+INICIO
+
+SUMAR = 0
+PROMEDIO = 0
+
+INGRESAR VALOR1
+INGRESAR VALOR2
+INGRESAR VALOR3
+INGRESAR VALOR4
+SUMAR = VALOR1 + VALOR2 + VALOR3 + VALOR4
+PROMEDIO = SUMAR / 4
+MOSTRAR SUMAR
+MOSTRAR PROMEDIO
+
+FIN
