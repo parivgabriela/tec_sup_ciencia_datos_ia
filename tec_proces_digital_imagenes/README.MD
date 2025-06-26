@@ -1,5 +1,9 @@
 # Técnicas de Procesamiento Digital de Imágenes
 
+# ACTUALIZACIÓN DE REPOSITORIO
+[LINK AL REPOSITORIO](https://github.com/parivgabriela/PDI_PARI_VACA_GABRIELA/tree/main)
+
+
 Este repositorio contiene material de estudio, ejercicios y trabajos prácticos desarrollados durante la cursada de Técnicas de Procesamiento Digital de Imágenes.
 
 ## Estructura del Repositorio
