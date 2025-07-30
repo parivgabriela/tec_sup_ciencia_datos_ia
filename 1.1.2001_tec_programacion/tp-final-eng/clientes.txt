@@ -6,5 +6,9 @@ dni,nombre_completo,telefono,direccion,estado,isbn
 38777777,Li Xiu,08009896, rivadavia 4052 pb,L,
 3899999,pepe pepin,08005556,Av corrientes 9865,L,
 789789789,Pérez Nuñez,87978754,carlos calvo 235,L,
-13131313,Ana Vallejos,456464645,Rivadavia 7898,L,
-98989898,Dalia Gutman,34523424,libertador ,L,
+13131313,Ana Vallejos,456464645,Rivadavia 7898,O,11111111111
+98989898,Dalia Gutman,34523424,aavenida libertador 2543,O,999999888888
+38794555,Fula Nita,49495623,Calle falsa 123,L,
+
+38794999,Dada Tina,45698235,Alguna direccion 1223,L,
+345345334534534535,sdfsdf sdfsdf,45345345,sdfsdf 43,L,
